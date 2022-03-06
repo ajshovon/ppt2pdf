@@ -1,9 +1,8 @@
-import comtypes.client
+import win32com.client
 import os
 
 def init_powerpoint():
-    powerpoint = comtypes.client.CreateObject("Powerpoint.Application")
-    powerpoint.Visible = 1
+    powerpoint = win32com.client.DispatchEx("Powerpoint.Application")
     return powerpoint
 
 def ppt_to_pdf(powerpoint, inputFileName, outputFileName, formatType = 32):
