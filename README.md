@@ -18,7 +18,7 @@
 
 - Double click `add_contenxt.reg` and add the keys
 
-- Click and ppt or pptx file and you will the options
+- Click any ppt or pptx file and you will the options
 
 You can directly drag and drop slides on `*.bat` files to convert
 
