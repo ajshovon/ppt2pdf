@@ -1,11 +1,32 @@
-# batch-ppt-to-pdf
-Python script to convert a bunch of Microsoft Powerpoint files (.ppt or .pptx) to PDF. Powerpoint must be installed on the machine for this to work.
+# Convert PPT/PPTX to PDF From Context Menu
 
-## Instructions for usage
-1. Put this script in the same folder as some powerpoint files
-2. Run the script
+## Requirements
 
-```
-python batch_ppt_to_pdf.py 
-```
-Tested with Python 3 on Windows
+- Python3 installed
+- Windows OS
+
+## Does What
+
+- ppt2pdf-dragdrop.bat : Converts to pdf
+- ppt2pdf-c-dragdrop.bat : Converts to pdf and remove the slide
+
+## How to setup
+
+- Clone or download this repo
+
+- Copy the `pp2pdf` folder to `C:\`
+
+- Double click `add_contenxt.reg` and add the keys
+
+- Click and ppt or pptx file and you will the options
+
+You can directly drag and drop slides on `*.bat` files to convert
+
+## How to remove
+
+- Run `rm_context.reg`
+
+- Delete the `pp2pdf` folder from `C:\`
+
+
+> NB: I am not responsible for any kind of data loss. Use on your own risk.

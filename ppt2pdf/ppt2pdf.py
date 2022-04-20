@@ -1,5 +1,16 @@
 import win32com.client
 import os
+import argparse
+
+parser = argparse.ArgumentParser(description='Convet ppt/pptx to pdf.')
+parser.add_argument('-c', '--clean', help="Cleanup slide after converting to pdf.", action='store_true')
+parser.add_argument('source', help="PPT/PPTX files", nargs='+')
+args = parser.parse_args()
+delete_ppt = False
+pptFiles = args.source
+
+if (args.clean):
+    delete_ppt = True
 
 def init_powerpoint():
     powerpoint = win32com.client.DispatchEx("Powerpoint.Application")
@@ -11,16 +22,15 @@ def ppt_to_pdf(powerpoint, inputFileName, outputFileName, formatType = 32):
     deck = powerpoint.Presentations.Open(inputFileName)
     deck.SaveAs(outputFileName, formatType) # formatType = 32 for ppt to pdf
     deck.Close()
+    if (delete_ppt):
+        try:
+            os.remove(inputFileName)
+        except:
+            print("Could not delete slide!")
 
-def convert_files_in_folder(powerpoint, folder):
-    files = os.listdir(folder)
-    pptfiles = [f for f in files if f.endswith((".ppt", ".pptx"))]
-    for pptfile in pptfiles:
-        fullpath = os.path.join(folder, pptfile)
-        ppt_to_pdf(powerpoint, fullpath, fullpath)
 
 if __name__ == "__main__":
     powerpoint = init_powerpoint()
-    cwd = os.getcwd()
-    convert_files_in_folder(powerpoint, cwd)
+    for ppt in pptFiles:
+        ppt_to_pdf(powerpoint, ppt, ppt)
     powerpoint.Quit()
