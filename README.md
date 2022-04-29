@@ -4,6 +4,7 @@
 
 - Python3 installed
 - Windows OS
+- MS office installed
 
 ## Does What
 
@@ -14,7 +15,7 @@
 
 - Clone or download this repo
 
-- Copy the `pp2pdf` folder to `C:\`
+- Copy the `pp2pdf` folder to `C:\utils\`
 
 - Double click `add_contenxt.reg` and add the keys
 
@@ -26,7 +27,7 @@ You can directly drag and drop slides on `*.bat` files to convert
 
 - Run `rm_context.reg`
 
-- Delete the `pp2pdf` folder from `C:\`
+- Delete the `utils` folder from `C:\`
 
 
 > NB: I am not responsible for any kind of data loss. Use on your own risk.
